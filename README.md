@@ -27,7 +27,8 @@
 
 ## Features
 
-...
+- Encrypt and publish encrypted documents to the Parity Secret Store.
+- Fetch and decrypt the documents from the Parity Secret Store, if permissions are given.
 
 ## Prerequisites
 
@@ -40,7 +41,7 @@
 
 ## Quickstart
 
-### Instantiate a publisher
+#### Instantiate a publisher
 
 ```
 from secret_store_client import Client
@@ -54,7 +55,7 @@ publisher = Client(secret_store_url, parity_client_url,
                    publisher_address, publisher_password)
 ```
 
-### Publish a document
+#### Publish a document
 
 ```
 import hashlib
@@ -74,7 +75,7 @@ encrypted = publisher.publish_document(document_id, document, threshold=1)
 
 You can find some guidance on how to choose a threshold [here](https://wiki.parity.io/Secret-Store#server-key-generation-session).
 
-### Instantiate a consumer
+#### Instantiate a consumer
 
 ```
 from secret_store_client import Client
@@ -88,7 +89,7 @@ consumer = Client(secret_store_url, parity_client_url,
                   consumer_address, consumer_password)
 ```
 
-### Decrypt the document
+#### Decrypt the document
 
 ```
 decrypted = consumer.decrypt_document(document_id, encrypted)
