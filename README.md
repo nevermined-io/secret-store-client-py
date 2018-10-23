@@ -172,6 +172,38 @@ Public node URL: enode://a67dd8d6ffbf81fdd98fdae6902c527c77de34bc6fc39ffa8767126
 
 Insert this URL into the `bootnodes` list of your `users.toml`.
 
+#### Deploy the test permission contract
+
+Install `truffle`:
+
+```
+npm -g install truffle@beta
+```
+
+Note the versions the process was tested with.
+```
+npm 6.4.1
+node v9.11.2
+Truffle v5.0.0-beta.1 (core: 5.0.0-beta.1)
+Solidity v0.4.25 (solc-js)
+```
+
+Compile the contract.
+
+```
+truffle compile
+```
+
+Deploy the contract.
+
+```
+truffle migrate
+```
+
+It outputs "contract address". Copy it and insert as a value for `acl_contract` into `secret_store.toml`.
+
+Relaunch the node for the change to take action.
+
 #### Run the nodes
 
 The steps above have to only be performed once. Every time you want to develop or test, just run the Secret Store node and the Parity Ethereum client.

@@ -7,7 +7,7 @@ base_path = "db.users"
 
 [rpc]
 port = 8545 #default http port for RPC
-apis = ["secretstore"] # to access dedicated methods
+apis = ["secretstore","eth","net","personal"] # to access dedicated methods
 
 [secretstore]
 disable = true # users do not run a secret store node
