@@ -81,4 +81,5 @@ def test_rejects_keys_request_if_no_permissions(config):
 
     with pytest.raises(RPCError) as e:
         consumer.decrypt_document(document_id, '')
-    assert 'Failed to retrieve decryption keys: Forbidden', e.value
+
+    assert 'Failed to retrieve decryption keys: Forbidden' == str(e.value)
