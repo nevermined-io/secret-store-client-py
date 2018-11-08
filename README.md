@@ -7,7 +7,7 @@
 
 
 [![Travis (.com)](https://img.shields.io/travis/com/oceanprotocol/secret-store-client-py.svg)](https://travis-ci.com/oceanprotocol/secret-store-client-py)
-[![PyPI](https://img.shields.io/pypi/v/secret-store-client.svg)](https://pypi.org/project/secret-store-client/)
+[![PyPI](https://img.shields.io/pypi/v/ocean-secret-store-client.svg)](https://pypi.org/project/ocean-secret-store-client/)
 
 
 ---
