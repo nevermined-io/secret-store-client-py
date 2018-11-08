@@ -35,7 +35,8 @@ def test_publish_and_consume_document(config):
         config['ss_url'],
         config['parity_client_url'],
         config['publisher_address'],
-        config['publisher_password']
+        os.getenv(config['publisher_password'][2:-1]) if config['publisher_password'][0] is '$' else config[
+            'publisher_password']
     )
 
     document = 'mySecretDocument-{}'.format(uuid.uuid4())
@@ -46,7 +47,8 @@ def test_publish_and_consume_document(config):
         config['ss_url'],
         config['parity_client_url'],
         config['consumer_address'],
-        config['consumer_password']
+        os.getenv(config['publisher_password'][2:-1]) if config['publisher_password'][0] is '$' else config[
+            'publisher_password']
     )
     decrypted = consumer.decrypt_document(document_id, encrypted)
 
