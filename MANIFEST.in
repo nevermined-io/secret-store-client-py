@@ -1,3 +1,4 @@
+include CHANGELOG.md
 include HISTORY.md
 include LICENSE
 include README.md

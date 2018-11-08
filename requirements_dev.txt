@@ -1,6 +1,6 @@
-requests
+requests==2.19.1
 pytest
 pytest-runner
 setuptools==40.4.3
 virtualenv==16.0.0
-
+wheel==0.32.2
