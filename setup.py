@@ -11,16 +11,14 @@ with open('README.md') as readme_file:
 with open('CHANGELOG.md') as changelog_file:
     changelog = changelog_file.read()
 
-requirements = [
-    'requests',
-]
+requirements = ['requests',]
 
 setup_requirements = ['pytest-runner', ]
 
 test_requirements = ['pytest', ]
 
 setup(
-    author="Ocean Protocol team",
+    author="leucothia",
     author_email='devops@oceanprotocol.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -35,10 +33,10 @@ setup(
     install_requires=requirements,
     license="Apache Software License 2.0",
     long_description=readme,
-    long_description_content_type='text/x-rst',
+    long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords='secret-store-client',
-    name='secret-store-client',
+    keywords='ocean-secret-store-client',
+    name='ocean-secret-store-client',
     packages=find_packages(include=['secret_store_client']),
     setup_requires=setup_requirements,
     test_suite='tests',

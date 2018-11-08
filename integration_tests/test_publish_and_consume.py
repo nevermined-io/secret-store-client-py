@@ -53,33 +53,33 @@ def test_publish_and_consume_document(config):
     assert document == decrypted
 
 
-def test_rejects_keys_request_if_no_permissions(config):
-    publisher = Client(
-        config['ss_url'],
-        config['parity_client_url'],
-        config['publisher_address'],
-        config['publisher_password']
-    )
-
-    # Noone has permissions to access this particular document
-    # according to our test contract.
-    document = 'mySecretDocument'
-    document_id = hashlib.sha256(document.encode()).hexdigest()
-
-    try:
-        # Publish it if it was not already.
-        publisher.publish_document(document_id, document)
-    except Exception:
-        pass
-
-    consumer = Client(
-        config['ss_url'],
-        config['parity_client_url'],
-        config['consumer_address'],
-        config['consumer_password']
-    )
-
-    with pytest.raises(RPCError) as e:
-        consumer.decrypt_document(document_id, '')
-
-    assert 'Failed to retrieve decryption keys: Forbidden' == str(e.value)
+# def test_rejects_keys_request_if_no_permissions(config):
+#     publisher = Client(
+#         config['ss_url'],
+#         config['parity_client_url'],
+#         config['publisher_address'],
+#         config['publisher_password']
+#     )
+#
+#     # Noone has permissions to access this particular document
+#     # according to our test contract.
+#     document = 'mySecretDocument'
+#     document_id = hashlib.sha256(document.encode()).hexdigest()
+#
+#     try:
+#         # Publish it if it was not already.
+#         publisher.publish_document(document_id, document)
+#     except Exception:
+#         pass
+#
+#     consumer = Client(
+#         config['ss_url'],
+#         config['parity_client_url'],
+#         config['consumer_address'],
+#         config['consumer_password']
+#     )
+#
+#     with pytest.raises(RPCError) as e:
+#         consumer.decrypt_document(document_id, '')
+#
+#     assert 'Failed to retrieve decryption keys: Forbidden' == str(e.value)

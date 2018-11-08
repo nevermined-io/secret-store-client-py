@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.idea
+docker/docs
+config_local.ini
+db.ss
+db.users
