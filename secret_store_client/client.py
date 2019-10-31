@@ -157,7 +157,8 @@ class Client:
             pass
         else:
             if 'error' in data:
-                raise RPCError('{}: {}'.format(message, data['error']))
+                error = data['error'] if isinstance(data, dict) else data
+                raise RPCError('{}: {}'.format(message, error))
 
         if resp.status_code != 200:
             raise RPCError('{}: {}'.format(message, resp.reason))
