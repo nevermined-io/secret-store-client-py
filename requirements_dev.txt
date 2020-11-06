@@ -1,7 +1,11 @@
-coverage==4.5.1
-requests==2.20.0
-pytest
-pytest-runner
-setuptools==40.4.3
-virtualenv==16.0.0
-wheel==0.32.2
+# pip install nevermined-secret-store-client
+# is for end users. That will install the packages
+# listed in the install_requires list of setup.py.
+
+# pip install -r requirements_dev.txt
+# is for the developers of nevermined-secret-store-client, so doing that should
+# install all the Python packages listed
+# in the install_requires list of setup.py
+# and also the 'dev' list in the extras_require dict
+
+-e .[dev]

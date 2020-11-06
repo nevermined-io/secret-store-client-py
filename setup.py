@@ -8,11 +8,19 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = ['requests',]
+requirements = ['requests==2.20.0']
 
-setup_requirements = ['pytest-runner', ]
+setup_requirements = ['pytest-runner']
 
-test_requirements = ['pytest', ]
+test_requirements = ['pytest']
+
+# Possibly required by developers of nevermined-sdk-py:
+dev_requirements = [
+    'bumpversion',
+    'pkginfo',
+    'twine',
+    'watchdog',
+]
 
 setup(
     author="nevermined-io",
@@ -27,6 +35,10 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="🐳 Python client for Parity Secret Store.",
+    extras_require={
+        'test': test_requirements,
+        'dev': dev_requirements + test_requirements
+    },
     install_requires=requirements,
     license="Apache Software License 2.0",
     long_description=readme,
