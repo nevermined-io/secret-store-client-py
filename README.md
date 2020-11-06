@@ -1,26 +1,38 @@
-[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://oceanprotocol.com)
+[![banner](https://raw.githubusercontent.com/nevermined-io/assets/main/images/logo/banner_logo.png)](https://nevermined.io)
 
-# secret-store-client-py 
+# Nevermined Secret Store Client
 
 >    🐳  Python client for Parity Secret Store.
->    [oceanprotocol.com](https://oceanprotocol.com)
+> [nevermined.io](https://nevermined.io)
 
 
-[![Travis (.com)](https://img.shields.io/travis/com/oceanprotocol/secret-store-client-py.svg)](https://travis-ci.com/oceanprotocol/secret-store-client-py)
-[![PyPI](https://img.shields.io/pypi/v/ocean-secret-store-client.svg)](https://pypi.org/project/ocean-secret-store-client/)
-
+[![PyPI](https://img.shields.io/pypi/v/nevermined-secret-store-client.svg)](https://pypi.org/project/nevermined-secret-store-client/)
+[![Python package](https://github.com/nevermined-io/secret-store-client-py/workflows/Python%20package/badge.svg)](https://github.com/nevermined-io/secret-store-client-py/actions)
 
 ---
 
 ## Table of Contents
 
+- [Nevermined Secret Store Client](#nevermined-secret-store-client)
+  - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
   - [Quickstart](#quickstart)
-  - [Environment variables](#environment-variables)
-  - [Code style](#code-style)
-  - [Testing](#testing)
+      - [Instantiate a publisher](#instantiate-a-publisher)
+      - [Publish a document](#publish-a-document)
+      - [Instantiate a consumer](#instantiate-a-consumer)
+      - [Decrypt the document](#decrypt-the-document)
+  - [Development](#development)
+      - [Download and compile the Parity Ethereum client](#download-and-compile-the-parity-ethereum-client)
+      - [Configure a publisher node](#configure-a-publisher-node)
+      - [Configure a consumer node](#configure-a-consumer-node)
+      - [Configure a Secret Store node](#configure-a-secret-store-node)
+      - [Deploy the test permission contract](#deploy-the-test-permission-contract)
+      - [Run the nodes](#run-the-nodes)
+      - [Execute integration tests](#execute-integration-tests)
+    - [TLDR](#tldr)
   - [New Version](#new-version)
+  - [Attribution](#attribution)
   - [License](#license)
 
 ---
@@ -227,14 +239,6 @@ Make sure the Secret Store node and the Parity Ethereum client are up and runnin
 python3 setup.py test
 ```
 
-Automatic tests are setup via Travis, executing `tox`.
-Our test use pytest framework.
-
-## Code style
-
-The information about code style in python is documented in this two links [python-developer-guide](https://github.com/oceanprotocol/dev-ocean/blob/master/doc/development/python-developer-guide.md)
-and [python-style-guide](https://github.com/oceanprotocol/dev-ocean/blob/master/doc/development/python-style-guide.md).
-
 ### TLDR
 
 ```
@@ -246,10 +250,17 @@ flake8 secret_store_client integration_tests tests
 
 The `bumpversion.sh` script helps to bump the project version. You can execute the script using as first argument {major|minor|patch} to bump accordingly the version.
 
+## Attribution
+
+This project is based in the Ocean Protocol [Python Secret Store Client](https://github.com/oceanprotocol/secret-store-client-py).
+It keeps the same Apache v2 License and adds some improvements. See [NOTICE file](NOTICE).
+
 ## License
 
 ```
-Copyright 2018 Ocean Protocol Foundation Ltd.
+Copyright 2020 Keyko GmbH
+This product includes software developed at
+BigchainDB GmbH and Ocean Protocol (https://www.oceanprotocol.com/)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
