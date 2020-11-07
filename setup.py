@@ -8,18 +8,23 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('CHANGELOG.md') as changelog_file:
-    changelog = changelog_file.read()
+requirements = ['requests==2.20.0']
 
-requirements = ['requests',]
+setup_requirements = ['pytest-runner']
 
-setup_requirements = ['pytest-runner', ]
+test_requirements = ['pytest']
 
-test_requirements = ['pytest', ]
+# Possibly required by developers of nevermined-sdk-py:
+dev_requirements = [
+    'bumpversion',
+    'pkginfo',
+    'twine',
+    'watchdog',
+]
 
 setup(
-    author="leucothia",
-    author_email='devops@oceanprotocol.com',
+    author="nevermined-io",
+    author_email='root@nevermined.io',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -30,18 +35,22 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="🐳 Python client for Parity Secret Store.",
+    extras_require={
+        'test': test_requirements,
+        'dev': dev_requirements + test_requirements
+    },
     install_requires=requirements,
     license="Apache Software License 2.0",
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords='ocean-secret-store-client',
-    name='ocean-secret-store-client',
+    keywords='nevermined-secret-store-client',
+    name='nevermined-secret-store-client',
     packages=find_packages(include=['secret_store_client']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/oceanprotocol/secret-store-client-py',
-    version='0.0.2',
+    url='https://github.com/nevermined-io/secret-store-client-py',
+    version='0.0.3',
     zip_safe=False,
 )

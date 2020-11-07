@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        docker login -u ${{ secrets.NEVERMINED_DOCKER_USERNAME }} -p ${{ secrets.NEVERMINED_DOCKER_TOKEN}}
+        git clone https://github.com/nevermined-io/tools nevermined-tools
+        cd nevermined-tools
+        rm -rf "${HOME}/.nevermined/nevermined-contracts/artifacts"
+        ./start_nevermined.sh --latest --no-commons --no-metadata --no-gateway --no-faucet --no-elastic --no-acl-contract &
+        ./scripts/wait_for_service.sh localhost:8545
+        cd ..
+        python -m pip install --upgrade pip
+        pip install -r requirements_dev.txt
+    - name: Test with pytest
+      run: |
+        pytest -v
