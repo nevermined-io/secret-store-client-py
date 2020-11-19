@@ -6,7 +6,7 @@
 > [nevermined.io](https://nevermined.io)
 
 
-[![PyPI](https://img.shields.io/pypi/v/nevermined-secret-store-client.svg)](https://pypi.org/project/nevermined-secret-store-client/)
+[![PyPI](https://img.shields.io/pypi/v/nevermined-secret-store.svg)](https://pypi.org/project/nevermined-secret-store/)
 [![Python package](https://github.com/nevermined-io/secret-store-client-py/workflows/Python%20package/badge.svg)](https://github.com/nevermined-io/secret-store-client-py/actions)
 
 ---
