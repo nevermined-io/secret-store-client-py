@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = ['requests==2.20.0']
+requirements = ['requests~=2.21.0']
 
 setup_requirements = ['pytest-runner']
 
@@ -30,8 +30,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
     description="🐳 Python client for Parity Secret Store.",
@@ -51,6 +49,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nevermined-io/secret-store-client-py',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )
