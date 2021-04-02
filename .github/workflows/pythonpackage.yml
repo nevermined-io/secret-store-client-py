@@ -29,7 +29,8 @@ jobs:
         git clone https://github.com/nevermined-io/tools nevermined-tools
         cd nevermined-tools
         rm -rf "${HOME}/.nevermined/nevermined-contracts/artifacts"
-        ./start_nevermined.sh --latest --no-commons --no-metadata --no-gateway --no-faucet --no-elastic --no-acl-contract &
+        ./start_nevermined.sh --no-marketplace --no-gateway --no-metadata --no-faucet --no-elastic --no-acl-contract --spree-embedded-contracts &
+
         ./scripts/wait_for_service.sh localhost:8545
         cd ..
         python -m pip install --upgrade pip
